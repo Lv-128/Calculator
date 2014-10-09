@@ -40,6 +40,7 @@
     canPushLBracket=YES;
     canPushDigit=YES;
     isMinusPressed =NO;
+    isSymbolBeforeEqual=NO;
     
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
@@ -340,6 +341,7 @@
                     currValue = [currValue stringByAppendingString:currNum];/// добавляем цифру в строкy
                 canPushSign = YES; // разрешаем ввод знака
                 isMinusPressed =NO;
+                 isSymbolBeforeEqual = NO;
             }
             // canPushRBracket =NO;
             
@@ -473,8 +475,9 @@
                                     /// x^2
                                     if(lastSign == XSquare){
 
-                                        curExpression = [@"x^2( " stringByAppendingString:curExpression];
-                                       
+                                        curExpression = [@"( " stringByAppendingString:curExpression];
+                                       curExpression = [curExpression stringByAppendingString:@"^"];
+                                        isSymbolBeforeEqual = YES;
                             
                                     }
                                     else
@@ -508,6 +511,13 @@
                                              
                                                 //NSExpression *e = [NSExpression expressionWithFormat:curExpression];
                                                 //currValue= [[e expressionValueWithObject:nil context:nil] doubleValue];
+                                                
+                                                
+                                                 if( isSymbolBeforeEqual ==YES)
+                                                 {
+                                                       curExpression = [curExpression stringByAppendingString:@"1"];
+                                                 }
+                                                isSymbolBeforeEqual = NO;
                                                 Evaluator evaluator([curExpression UTF8String]);
                                                 currValue = evaluator.evaluate();
                                                 

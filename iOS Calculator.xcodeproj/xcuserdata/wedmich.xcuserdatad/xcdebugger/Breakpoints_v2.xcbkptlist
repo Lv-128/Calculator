@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "211"
             endingLineNumber = "211"
-            landmarkName = "-digitPushedBy:"
+            landmarkName = "-operationChosen:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "356"
             endingLineNumber = "356"
-            landmarkName = "-pointPushed:"
+            landmarkName = "-digitPushedBy:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

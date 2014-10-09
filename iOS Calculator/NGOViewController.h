@@ -31,6 +31,8 @@ bool isMinusPressed;
 int countBracket;
 
 BOOL canPushDigit;
+ 
+    bool isSymbolBeforeEqual;
     
     
 }
