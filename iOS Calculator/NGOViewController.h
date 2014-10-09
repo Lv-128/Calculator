@@ -8,6 +8,33 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NGOViewController : UIViewController
 
+enum {plus = 40, minus = 50, multi = 20, divi = 30 , sqr = 70, c = 60 ,
+    rBracket=90, lBracket=80 , equal = 3000,
+    Ln = 2003, Sin = 2000, Cos = 2001, Tg = 2002, Ctg = 2004, oneDivX = 2005, Xcube =2007 , XSquare = 2006, factorial = 2008};
+@interface NGOViewController : UIViewController{
+BOOL isNewEnter;
+
+double lastValue;
+
+NSInteger lastSign;
+
+BOOL canPushLBracket;
+
+//BOOL canPushRBracket;
+BOOL canPushSign;
+
+BOOL isPoint;
+
+bool isMinusPressed;
+
+int countBracket;
+
+BOOL canPushDigit;
+    
+    
+}
+- (IBAction)digitPushedBy:(id)sender;
+- (NSString*)operationChosen:(int)sign;
+-(IBAction)pointPushed:(id)sender;
 @end
