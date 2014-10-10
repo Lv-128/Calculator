@@ -96,7 +96,7 @@
         isPoint=NO;
         
     }
-    if ([lastSymbol isEqual:@"("]) canPushLBracket = YES; canPushSign = YES; countBracket--;
+    if ([lastSymbol isEqual:@"("]) {canPushLBracket = YES; canPushSign = YES; countBracket--;}
     
     if ([lastSymbol isEqual:@"."]) { isPoint= YES;canPushSign =YES; }
     
@@ -141,20 +141,6 @@
         else {
             [self clearButtonPressed:sender];
             self.errorState = NO;
-        }
-    }
-}
-
-- (IBAction)equalsButtonPressed:(UIButton *)sender
-{
-    if (self.outputTextField.text.length > 0) {
-        try {
-            Evaluator evaluator([self.outputTextField.text UTF8String]);
-            self.outputTextField.text = [NSString stringWithFormat:@"%.10g", evaluator.evaluate()];
-        }
-        catch (std::runtime_error& e) {
-            self.outputTextField.text = [NSString stringWithFormat:@"%s", e.what()];
-            self.errorState = YES;
         }
     }
 }
@@ -403,7 +389,7 @@
         {
             for (int i=0; i< countBracket;++i)
             {
-                //self.outputTextField.text= [self.textField.text stringByAppendingString:@")"];
+                self.outputTextField.text= [self.outputTextField.text stringByAppendingString:@")"];
             }
             
         }
@@ -518,15 +504,24 @@
                                                        curExpression = [curExpression stringByAppendingString:@"1"];
                                                  }
                                                 isSymbolBeforeEqual = NO;
-                                                Evaluator evaluator([curExpression UTF8String]);
-                                                currValue = evaluator.evaluate();
+                                                
+                                                try
+                                                {
+                                                    Evaluator evaluator([curExpression UTF8String]);
+                                                    currValue = evaluator.evaluate();
+                                                
                                                 
                                                 // curExpression = [curExpression stringByAppendingString:@" = "];
                                                 //self.textLabel.text = [NSS] /*curExpression*/;
                                                 
                                                 //  self.textField.text =[NSString stringWithFormat:@"%f", currValue];
                                                 //self.textField.text = [[NSNumber numberWithDouble: currValue] stringValue];
-                                                self.outputTextField.text = [NSString stringWithFormat:@"%g", currValue];
+                                                    self.outputTextField.text = [NSString stringWithFormat:@"%g", currValue];
+                                                }
+                                                catch(std::runtime_error)
+                                                {
+                                                    self.outputTextField.text = @"Error";
+                                                }
                                                 isPoint = YES;
                                                 
                                                 isNewEnter = YES;
