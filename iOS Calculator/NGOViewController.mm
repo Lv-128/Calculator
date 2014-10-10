@@ -89,6 +89,11 @@
 {
     
     NSString * current = self.outputTextField.text;
+    if( [current isEqualToString:@"∞"])
+    {
+            self.outputTextField.text = @"0";    }
+    else
+    {
     NSString * lastSymbol = [current substringFromIndex:[current length] - 1];
     if ( [lastSymbol isEqual:@"+"] || [lastSymbol isEqual:@"-"] || [lastSymbol isEqual:@"*"]|| [lastSymbol isEqual:@"/"])
     {
@@ -122,13 +127,21 @@
         self.outputTextField.text = @"0";
     }
     
-    
+    }
 }
 
 
 - (IBAction)clearButtonPressed:(UIButton *)sender
 {
     [self clearOutputTextField];
+    self.outputTextField.text = @"0";
+    lastSign = 0;
+    lastValue = 0;
+    isPoint = YES;
+    isNewEnter = YES;
+    canPushDigit=YES;
+    canPushLBracket=YES;
+
 }
 
 - (IBAction)backButtonPressed:(UIButton *)sender
@@ -162,6 +175,15 @@
         
         switch (sign)
         {
+            case power:
+            {
+                res = [res stringByAppendingString:@"^"];
+                isPoint = YES;
+                canPushSign = NO;
+                isMinusPressed =NO;
+                break;
+            
+            }
             case multi :
             {
                 
@@ -227,7 +249,7 @@
     
     if ([currValue isEqual:@"0"]&& [sender tag]==0)// если например несколько раз нажат нуль, то повторно он не вносится в строку
     {
-        
+        canPushSign =YES;
         return;
     }
     
@@ -239,7 +261,7 @@
             ///
             ////добавляем знак в строку
             
-            
+        case power:
         case multi :
         case divi :
         case plus:
@@ -457,15 +479,7 @@
                        
   
                                 }
-                                else
-                                    /// x^2
-                                    if(lastSign == XSquare){
-
-                                        curExpression = [@"( " stringByAppendingString:curExpression];
-                                       curExpression = [curExpression stringByAppendingString:@"^"];
-                                        isSymbolBeforeEqual = YES;
-                            
-                                    }
+        
                                     else
                                         /// x^3
                                         if(lastSign == Xcube){
@@ -508,6 +522,7 @@
                                                 try
                                                 {
                                                     Evaluator evaluator([curExpression UTF8String]);
+                                                    NSLog(@"%@", curExpression);
                                                     currValue = evaluator.evaluate();
                                                 
                                                 
@@ -520,13 +535,25 @@
                                                 }
                                                 catch(std::runtime_error)
                                                 {
-                                                    self.outputTextField.text = @"Error";
+                                                    self.outputTextField.text = @"∞";
                                                 }
                                                 isPoint = YES;
                                                 
                                                 isNewEnter = YES;
                                                 
                                             }
+//                                else
+//                                    /// x^2
+//                                    if(lastSign == XSquare){
+//                                        
+//                                        curExpression = [@"( " stringByAppendingString:curExpression];
+//                                        
+//                                        curExpression = [curExpression stringByAppendingString:@")^"];
+//                                        self.outputTextField.text = curExpression;
+//                                        isSymbolBeforeEqual = YES;
+//                                        return;
+//                                        
+//                                    }
                                 else{
       curExpression = [curExpression stringByAppendingString:@" )"];
                                     self.outputTextField.text = curExpression;}
