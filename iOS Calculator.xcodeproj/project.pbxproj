@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		271B97E319E19DE800F7F9B4 /* NGOTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 271B97E219E19DE800F7F9B4 /* NGOTextField.m */; };
+		2784116219EB63A60041B922 /* NGOBinaryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115319EB63A60041B922 /* NGOBinaryOperation.m */; };
+		2784116319EB63A60041B922 /* NGOConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115519EB63A60041B922 /* NGOConstant.m */; };
+		2784116419EB63A60041B922 /* NGOExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115719EB63A60041B922 /* NGOExpression.m */; };
+		2784116519EB63A60041B922 /* NGOFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115919EB63A60041B922 /* NGOFunction.m */; };
+		2784116619EB63A60041B922 /* NGONumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115B19EB63A60041B922 /* NGONumber.m */; };
+		2784116719EB63A60041B922 /* NGOOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115D19EB63A60041B922 /* NGOOperation.m */; };
+		2784116819EB63A60041B922 /* NGOUnaryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784115F19EB63A60041B922 /* NGOUnaryOperation.m */; };
+		2784116919EB63A60041B922 /* NGOVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2784116119EB63A60041B922 /* NGOVariable.m */; };
 		27EF1B7219DD9B590057816F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EF1B7119DD9B590057816F /* Foundation.framework */; };
 		27EF1B7419DD9B590057816F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EF1B7319DD9B590057816F /* CoreGraphics.framework */; };
 		27EF1B7619DD9B590057816F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EF1B7519DD9B590057816F /* UIKit.framework */; };
@@ -15,21 +23,13 @@
 		27EF1B7E19DD9B590057816F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1B7D19DD9B590057816F /* main.m */; };
 		27EF1B8219DD9B590057816F /* NGOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1B8119DD9B590057816F /* NGOAppDelegate.m */; };
 		27EF1B8519DD9B590057816F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EF1B8319DD9B590057816F /* Main.storyboard */; };
-		27EF1B8819DD9B590057816F /* NGOViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1B8719DD9B590057816F /* NGOViewController.mm */; };
+		27EF1B8819DD9B590057816F /* NGOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1B8719DD9B590057816F /* NGOViewController.m */; };
 		27EF1B8A19DD9B590057816F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27EF1B8919DD9B590057816F /* Images.xcassets */; };
 		27EF1B9119DD9B5A0057816F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EF1B9019DD9B5A0057816F /* XCTest.framework */; };
 		27EF1B9219DD9B5A0057816F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EF1B7119DD9B590057816F /* Foundation.framework */; };
 		27EF1B9319DD9B5A0057816F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EF1B7519DD9B590057816F /* UIKit.framework */; };
 		27EF1B9B19DD9B5A0057816F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EF1B9919DD9B5A0057816F /* InfoPlist.strings */; };
 		27EF1B9D19DD9B5A0057816F /* iOS_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1B9C19DD9B5A0057816F /* iOS_CalculatorTests.m */; };
-		27EF1BA919DDA22D0057816F /* Evaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BA719DDA22D0057816F /* Evaluator.cpp */; };
-		27EF1BB219DDA85D0057816F /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BB019DDA85D0057816F /* Node.cpp */; };
-		27EF1BB519DDA8B20057816F /* Function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BB319DDA8B20057816F /* Function.cpp */; };
-		27EF1BB819DDA9340057816F /* UnaryFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BB619DDA9340057816F /* UnaryFunction.cpp */; };
-		27EF1BBB19DDAA060057816F /* BinaryFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BB919DDAA060057816F /* BinaryFunction.cpp */; };
-		27EF1BBE19DDAB3D0057816F /* Constant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BBC19DDAB3D0057816F /* Constant.cpp */; };
-		27EF1BC119DDABCA0057816F /* Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BBF19DDABCA0057816F /* Number.cpp */; };
-		27EF1BC419DDAC780057816F /* Variable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27EF1BC219DDAC780057816F /* Variable.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,22 @@
 /* Begin PBXFileReference section */
 		271B97E119E19DE800F7F9B4 /* NGOTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGOTextField.h; sourceTree = "<group>"; };
 		271B97E219E19DE800F7F9B4 /* NGOTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGOTextField.m; sourceTree = "<group>"; };
+		2784115219EB63A60041B922 /* NGOBinaryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOBinaryOperation.h; path = Parser/NGOBinaryOperation.h; sourceTree = "<group>"; };
+		2784115319EB63A60041B922 /* NGOBinaryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOBinaryOperation.m; path = Parser/NGOBinaryOperation.m; sourceTree = "<group>"; };
+		2784115419EB63A60041B922 /* NGOConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOConstant.h; path = Parser/NGOConstant.h; sourceTree = "<group>"; };
+		2784115519EB63A60041B922 /* NGOConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOConstant.m; path = Parser/NGOConstant.m; sourceTree = "<group>"; };
+		2784115619EB63A60041B922 /* NGOExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOExpression.h; path = Parser/NGOExpression.h; sourceTree = "<group>"; };
+		2784115719EB63A60041B922 /* NGOExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOExpression.m; path = Parser/NGOExpression.m; sourceTree = "<group>"; };
+		2784115819EB63A60041B922 /* NGOFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOFunction.h; path = Parser/NGOFunction.h; sourceTree = "<group>"; };
+		2784115919EB63A60041B922 /* NGOFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOFunction.m; path = Parser/NGOFunction.m; sourceTree = "<group>"; };
+		2784115A19EB63A60041B922 /* NGONumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGONumber.h; path = Parser/NGONumber.h; sourceTree = "<group>"; };
+		2784115B19EB63A60041B922 /* NGONumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGONumber.m; path = Parser/NGONumber.m; sourceTree = "<group>"; };
+		2784115C19EB63A60041B922 /* NGOOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOOperation.h; path = Parser/NGOOperation.h; sourceTree = "<group>"; };
+		2784115D19EB63A60041B922 /* NGOOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOOperation.m; path = Parser/NGOOperation.m; sourceTree = "<group>"; };
+		2784115E19EB63A60041B922 /* NGOUnaryOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOUnaryOperation.h; path = Parser/NGOUnaryOperation.h; sourceTree = "<group>"; };
+		2784115F19EB63A60041B922 /* NGOUnaryOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOUnaryOperation.m; path = Parser/NGOUnaryOperation.m; sourceTree = "<group>"; };
+		2784116019EB63A60041B922 /* NGOVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGOVariable.h; path = Parser/NGOVariable.h; sourceTree = "<group>"; };
+		2784116119EB63A60041B922 /* NGOVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGOVariable.m; path = Parser/NGOVariable.m; sourceTree = "<group>"; };
 		27EF1B6E19DD9B590057816F /* iOS Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27EF1B7119DD9B590057816F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27EF1B7319DD9B590057816F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,29 +73,13 @@
 		27EF1B8119DD9B590057816F /* NGOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGOAppDelegate.m; sourceTree = "<group>"; };
 		27EF1B8419DD9B590057816F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27EF1B8619DD9B590057816F /* NGOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGOViewController.h; sourceTree = "<group>"; };
-		27EF1B8719DD9B590057816F /* NGOViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NGOViewController.mm; sourceTree = "<group>"; };
+		27EF1B8719DD9B590057816F /* NGOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGOViewController.m; sourceTree = "<group>"; };
 		27EF1B8919DD9B590057816F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27EF1B8F19DD9B5A0057816F /* iOS CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27EF1B9019DD9B5A0057816F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		27EF1B9819DD9B5A0057816F /* iOS CalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS CalculatorTests-Info.plist"; sourceTree = "<group>"; };
 		27EF1B9A19DD9B5A0057816F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		27EF1B9C19DD9B5A0057816F /* iOS_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_CalculatorTests.m; sourceTree = "<group>"; };
-		27EF1BA719DDA22D0057816F /* Evaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Evaluator.cpp; path = Parser/Evaluator.cpp; sourceTree = "<group>"; };
-		27EF1BA819DDA22D0057816F /* Evaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Evaluator.h; path = Parser/Evaluator.h; sourceTree = "<group>"; };
-		27EF1BB019DDA85D0057816F /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = Parser/Node.cpp; sourceTree = "<group>"; };
-		27EF1BB119DDA85D0057816F /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = Parser/Node.h; sourceTree = "<group>"; };
-		27EF1BB319DDA8B20057816F /* Function.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Function.cpp; path = Parser/Function.cpp; sourceTree = "<group>"; };
-		27EF1BB419DDA8B20057816F /* Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Function.h; path = Parser/Function.h; sourceTree = "<group>"; };
-		27EF1BB619DDA9340057816F /* UnaryFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnaryFunction.cpp; path = Parser/UnaryFunction.cpp; sourceTree = "<group>"; };
-		27EF1BB719DDA9340057816F /* UnaryFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnaryFunction.h; path = Parser/UnaryFunction.h; sourceTree = "<group>"; };
-		27EF1BB919DDAA060057816F /* BinaryFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryFunction.cpp; path = Parser/BinaryFunction.cpp; sourceTree = "<group>"; };
-		27EF1BBA19DDAA060057816F /* BinaryFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BinaryFunction.h; path = Parser/BinaryFunction.h; sourceTree = "<group>"; };
-		27EF1BBC19DDAB3D0057816F /* Constant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Constant.cpp; path = Parser/Constant.cpp; sourceTree = "<group>"; };
-		27EF1BBD19DDAB3D0057816F /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Parser/Constant.h; sourceTree = "<group>"; };
-		27EF1BBF19DDABCA0057816F /* Number.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Number.cpp; path = Parser/Number.cpp; sourceTree = "<group>"; };
-		27EF1BC019DDABCA0057816F /* Number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Number.h; path = Parser/Number.h; sourceTree = "<group>"; };
-		27EF1BC219DDAC780057816F /* Variable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Variable.cpp; path = Parser/Variable.cpp; sourceTree = "<group>"; };
-		27EF1BC319DDAC780057816F /* Variable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Variable.h; path = Parser/Variable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 				27EF1B8119DD9B590057816F /* NGOAppDelegate.m */,
 				27EF1B8319DD9B590057816F /* Main.storyboard */,
 				27EF1B8619DD9B590057816F /* NGOViewController.h */,
-				27EF1B8719DD9B590057816F /* NGOViewController.mm */,
+				27EF1B8719DD9B590057816F /* NGOViewController.m */,
 				271B97E119E19DE800F7F9B4 /* NGOTextField.h */,
 				271B97E219E19DE800F7F9B4 /* NGOTextField.m */,
 				27EF1B8919DD9B590057816F /* Images.xcassets */,
@@ -185,22 +185,22 @@
 		27EF1BA619DD9BA30057816F /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				27EF1BA719DDA22D0057816F /* Evaluator.cpp */,
-				27EF1BA819DDA22D0057816F /* Evaluator.h */,
-				27EF1BB019DDA85D0057816F /* Node.cpp */,
-				27EF1BB119DDA85D0057816F /* Node.h */,
-				27EF1BB319DDA8B20057816F /* Function.cpp */,
-				27EF1BB419DDA8B20057816F /* Function.h */,
-				27EF1BB619DDA9340057816F /* UnaryFunction.cpp */,
-				27EF1BB719DDA9340057816F /* UnaryFunction.h */,
-				27EF1BB919DDAA060057816F /* BinaryFunction.cpp */,
-				27EF1BBA19DDAA060057816F /* BinaryFunction.h */,
-				27EF1BBC19DDAB3D0057816F /* Constant.cpp */,
-				27EF1BBD19DDAB3D0057816F /* Constant.h */,
-				27EF1BBF19DDABCA0057816F /* Number.cpp */,
-				27EF1BC019DDABCA0057816F /* Number.h */,
-				27EF1BC219DDAC780057816F /* Variable.cpp */,
-				27EF1BC319DDAC780057816F /* Variable.h */,
+				2784115819EB63A60041B922 /* NGOFunction.h */,
+				2784115919EB63A60041B922 /* NGOFunction.m */,
+				2784115619EB63A60041B922 /* NGOExpression.h */,
+				2784115719EB63A60041B922 /* NGOExpression.m */,
+				2784115C19EB63A60041B922 /* NGOOperation.h */,
+				2784115D19EB63A60041B922 /* NGOOperation.m */,
+				2784115219EB63A60041B922 /* NGOBinaryOperation.h */,
+				2784115319EB63A60041B922 /* NGOBinaryOperation.m */,
+				2784115E19EB63A60041B922 /* NGOUnaryOperation.h */,
+				2784115F19EB63A60041B922 /* NGOUnaryOperation.m */,
+				2784115A19EB63A60041B922 /* NGONumber.h */,
+				2784115B19EB63A60041B922 /* NGONumber.m */,
+				2784115419EB63A60041B922 /* NGOConstant.h */,
+				2784115519EB63A60041B922 /* NGOConstant.m */,
+				2784116019EB63A60041B922 /* NGOVariable.h */,
+				2784116119EB63A60041B922 /* NGOVariable.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -304,17 +304,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				27EF1B7E19DD9B590057816F /* main.m in Sources */,
-				27EF1BB519DDA8B20057816F /* Function.cpp in Sources */,
-				27EF1BC119DDABCA0057816F /* Number.cpp in Sources */,
-				27EF1BB819DDA9340057816F /* UnaryFunction.cpp in Sources */,
-				27EF1BA919DDA22D0057816F /* Evaluator.cpp in Sources */,
+				2784116219EB63A60041B922 /* NGOBinaryOperation.m in Sources */,
+				2784116519EB63A60041B922 /* NGOFunction.m in Sources */,
+				2784116319EB63A60041B922 /* NGOConstant.m in Sources */,
 				27EF1B8219DD9B590057816F /* NGOAppDelegate.m in Sources */,
-				27EF1B8819DD9B590057816F /* NGOViewController.mm in Sources */,
-				27EF1BBB19DDAA060057816F /* BinaryFunction.cpp in Sources */,
-				27EF1BB219DDA85D0057816F /* Node.cpp in Sources */,
-				27EF1BBE19DDAB3D0057816F /* Constant.cpp in Sources */,
+				27EF1B8819DD9B590057816F /* NGOViewController.m in Sources */,
+				2784116919EB63A60041B922 /* NGOVariable.m in Sources */,
+				2784116719EB63A60041B922 /* NGOOperation.m in Sources */,
+				2784116819EB63A60041B922 /* NGOUnaryOperation.m in Sources */,
+				2784116619EB63A60041B922 /* NGONumber.m in Sources */,
 				271B97E319E19DE800F7F9B4 /* NGOTextField.m in Sources */,
-				27EF1BC419DDAC780057816F /* Variable.cpp in Sources */,
+				2784116419EB63A60041B922 /* NGOExpression.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

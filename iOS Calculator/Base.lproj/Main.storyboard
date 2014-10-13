@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -182,7 +182,7 @@
                                     <action selector="signPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hwm-Ie-HCX"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="2yi-ny-vgh">
+                            <button opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="2yi-ny-vgh">
                                 <rect key="frame" x="312" y="88" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="sin" backgroundImage="BlackButton">
@@ -240,7 +240,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button hidden="YES" opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="afH-df-j6e">
+                            <button opaque="NO" tag="2001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="afH-df-j6e">
                                 <rect key="frame" x="312" y="135" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cos" backgroundImage="BlackButton">
@@ -251,10 +251,10 @@
                                     <action selector="signPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rgt-Oj-AOG"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="RBU-f2-N28">
+                            <button opaque="NO" tag="2002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="RBU-f2-N28">
                                 <rect key="frame" x="312" y="183" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="tg" backgroundImage="BlackButton">
+                                <state key="normal" title="tan" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
@@ -262,7 +262,7 @@
                                     <action selector="signPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kpS-My-D3R"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="PvS-lM-hBb">
+                            <button opaque="NO" tag="2006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="PvS-lM-hBb">
                                 <rect key="frame" x="312" y="272" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="xⁿ" backgroundImage="BlackButton">
@@ -270,7 +270,7 @@
                                 </state>
                                 <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
                                 <connections>
-                                    <action selector="signPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SVh-8W-Nae"/>
+                                    <action selector="digitPushedBy:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9cW-TW-gDh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -280,10 +280,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="butCos" destination="afH-df-j6e" id="Ivn-RS-u5U"/>
-                        <outlet property="butCtg" destination="PvS-lM-hBb" id="R7g-Zt-NMk"/>
                         <outlet property="butSin" destination="2yi-ny-vgh" id="fBo-4B-oK6"/>
                         <outlet property="butTg" destination="RBU-f2-N28" id="qVr-jp-SLP"/>
-                        <outlet property="butXsquare" destination="PvS-lM-hBb" id="ljJ-ey-r4B"/>
+                        <outlet property="butXsquare" destination="PvS-lM-hBb" id="7Fo-OK-rtT"/>
                         <outlet property="outputTextField" destination="vQ0-dt-Bg1" id="9py-b2-uzW"/>
                     </connections>
                 </viewController>
