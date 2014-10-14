@@ -346,4 +346,19 @@ NGOExpression *_tree;
     return [_tree evaluateWithArguments:arguments];
 }
 
+- (void)differentiateWithVariable:(NSString *)variable
+{
+    _tree = [[_tree differentiateWithVariable:variable] optimize];
+}
+
+- (NSString *)description
+{
+    if (_tree) {
+        return [_tree description];
+    }
+    else {
+        return [[NSString alloc] init];
+    }
+}
+
 @end

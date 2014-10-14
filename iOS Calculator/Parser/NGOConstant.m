@@ -10,6 +10,7 @@
 
 #import "NGOConstant.h"
 #import "NGOFunction.h"
+#import "NGONumber.h"
 
 @implementation NGOConstant
 
@@ -44,6 +45,11 @@
 - (double)evaluateWithArguments:(NSDictionary *)arguments
 {
     return [[NGOFunction constants][self.name] doubleValue];
+}
+
+- (NGOExpression *)differentiateWithVariable:(NSString *)variable
+{
+    return [[NGONumber alloc] initWithNumber:0.0];
 }
 
 @end

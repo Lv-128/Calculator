@@ -18,5 +18,6 @@
 - (id)initWithString:(NSString *)string;
 - (double)evaluate;
 - (double)evaluateWithArguments:(NSDictionary *)arguments;
+- (void)differentiateWithVariable:(NSString *)variable;
 
 @end

@@ -23,10 +23,28 @@
 @property (weak, nonatomic) IBOutlet UIButton *butFact;
 
 @property (weak, nonatomic) IBOutlet UITextField *outputTextField;
-@property BOOL errorState;
+
 @end
 
 @implementation NGOViewController
+
+enum {
+    plus = 40, minus = 50, multi = 20, divi = 30,
+    c = 60, sqr = 70, rBracket=90, lBracket=80, equal = 3000,
+    Ln = 2003, Sin = 2000, Cos = 2001, Tg = 2002, Ctg = 2004, oneDivX = 2005, Xcube =2007 , power = 2006, factorial = 2008
+};
+
+BOOL isNewEnter;
+double lastValue;
+NSInteger lastSign;
+BOOL canPushLBracket;
+// BOOL canPushRBracket;
+BOOL canPushSign;
+BOOL isPoint;
+bool isMinusPressed;
+int countBracket;
+BOOL canPushDigit;
+bool isSymbolBeforeEqual;
 
 - (void)viewDidLoad
 {
@@ -45,7 +63,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
     [self setNeedsStatusBarAppearanceUpdate];
-    self.errorState = NO;
+//    Differentiation test
+//    @try {
+//        NGOFunction *f = [[NGOFunction alloc] initWithString:@"x*2+x"];
+//        [f differentiateWithVariable:@"x"];
+//        self.outputTextField.text = [NSString stringWithFormat:@"%@", f];
+//    }
+//    @catch (NSException *exception) {
+//        self.outputTextField.text = exception.reason;
+//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,42 +101,40 @@
     NSString * current = self.outputTextField.text;
     if( [current isEqualToString:@"∞"])
     {
-            self.outputTextField.text = @"0";    }
+            self.outputTextField.text = @"0";
+    }
     else
     {
-    NSString * lastSymbol = [current substringFromIndex:[current length] - 1];
-    if ( [lastSymbol isEqual:@"+"] || [lastSymbol isEqual:@"-"] || [lastSymbol isEqual:@"*"]|| [lastSymbol isEqual:@"/"])
-    {
-        canPushSign =YES;
-        isPoint=NO;
-        
-    }
-    if ([lastSymbol isEqual:@"("]) {canPushLBracket = YES; canPushSign = YES; countBracket--;}
-    
-    if ([lastSymbol isEqual:@"."]) { isPoint= YES;canPushSign =YES; }
-    
-    NSString * newstr = [current substringToIndex:[current length] - 1];
-    
-    
-    if ([newstr length] > 0)
-    {
-        NSString * beforeLastSymbol = [newstr substringFromIndex:([newstr length] - 1)];
-        
-        if ([beforeLastSymbol isEqual:@"0"] || [beforeLastSymbol isEqual:@"1"]  ||[beforeLastSymbol isEqual:@"2"] ||
-            [beforeLastSymbol isEqual:@"3"]  ||[beforeLastSymbol isEqual:@"4"]  || [beforeLastSymbol isEqual:@"5"] ||
-            [beforeLastSymbol isEqual:@"6"]  || [beforeLastSymbol isEqual:@"7"]  || [beforeLastSymbol isEqual:@"8"]||
-            [beforeLastSymbol isEqual:@"9"])
+        NSString * lastSymbol = [current substringFromIndex:[current length] - 1];
+        if ( [lastSymbol isEqual:@"+"] || [lastSymbol isEqual:@"-"] || [lastSymbol isEqual:@"*"]|| [lastSymbol isEqual:@"/"])
         {
-            canPushLBracket=NO;
+            canPushSign =YES;
+            isPoint=NO;
         }
-        self.outputTextField.text = newstr;
-    }
-    else
-    {
         
-        self.outputTextField.text = @"0";
-    }
+        if ([lastSymbol isEqual:@"("]) {canPushLBracket = YES; canPushSign = YES; countBracket--;}
     
+        if ([lastSymbol isEqual:@"."]) { isPoint= YES;canPushSign =YES; }
+        
+        NSString * newstr = [current substringToIndex:[current length] - 1];
+    
+        if ([newstr length] > 0)
+        {
+            NSString * beforeLastSymbol = [newstr substringFromIndex:([newstr length] - 1)];
+        
+            if ([beforeLastSymbol isEqual:@"0"] || [beforeLastSymbol isEqual:@"1"]  ||[beforeLastSymbol isEqual:@"2"] ||
+                [beforeLastSymbol isEqual:@"3"]  ||[beforeLastSymbol isEqual:@"4"]  || [beforeLastSymbol isEqual:@"5"] ||
+                [beforeLastSymbol isEqual:@"6"]  || [beforeLastSymbol isEqual:@"7"]  || [beforeLastSymbol isEqual:@"8"]||
+                [beforeLastSymbol isEqual:@"9"])
+            {
+                canPushLBracket=NO;
+            }
+            self.outputTextField.text = newstr;
+        }
+        else
+        {
+            self.outputTextField.text = @"0";
+        }
     }
 }
 
@@ -128,21 +152,7 @@
 
 }
 
-- (IBAction)backButtonPressed:(UIButton *)sender
-{
-    if (self.outputTextField.text.length > 0) {
-        if (!self.errorState) {
-            self.outputTextField.text = [self.outputTextField.text
-                                     substringToIndex:self.outputTextField.text.length - 1];
-        }
-        else {
-            [self clearButtonPressed:sender];
-            self.errorState = NO;
-        }
-    }
-}
-
-- (NSString*)operationChosen:(int)sign
+- (NSString *)operationChosen:(int)sign
 {
     
     NSString* res=@"";

@@ -52,6 +52,48 @@
     return function([self.args[0] evaluateWithArguments:arguments], [self.args[1] evaluateWithArguments:arguments]);
 }
 
+- (NGOExpression *)differentiateWithVariable:(NSString *)variable
+{
+    if ([self.name isEqualToString:@"+"]) {
+        return [[NGOBinaryOperation alloc] initWithName:@"+"
+                                           LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
+                                          RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]];
+    }
+    else if ([self.name isEqualToString:@"-"]) {
+        return [[NGOBinaryOperation alloc] initWithName:@"-"
+                                           LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
+                                          RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]];
+    }
+    else if ([self.name isEqualToString:@"*"]) {
+        return [[NGOBinaryOperation alloc] initWithName:@"+"
+                                           LeftArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                    LeftArgument:self.args[0]
+                                                                                   RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]]
+                                          RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                    LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
+                                                                                   RightArgument:self.args[1]]];
+    }
+    else if ([self.name isEqualToString:@"/"]) {
+        NGOBinaryOperation *numerator = [[NGOBinaryOperation alloc] initWithName:@"-"
+                                                                    LeftArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                                             LeftArgument:self.args[0]
+                                                                                                            RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]]
+                                                                   RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                                             LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
+                                                                                                            RightArgument:self.args[1]]];
+        return [[NGOBinaryOperation alloc] initWithName:@"/"
+                                           LeftArgument: numerator
+                                          RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                    LeftArgument:self.args[1]
+                                                                                   RightArgument:self.args[1]]];
+    }
+    else {
+        @throw [[NSException alloc] initWithName:@"Unknown operation"
+                                          reason:@"Not implemented"
+                                        userInfo:nil];
+    }
+}
+
 - (NGOExpression *)optimize
 {
     NGOExpression *arg1 = [self.args[0] optimize];
