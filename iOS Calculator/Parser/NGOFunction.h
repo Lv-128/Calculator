@@ -15,6 +15,8 @@
 + (NSDictionary *)binaryOperations;
 + (NSDictionary *)constants;
 
++ (int)priorityOfToken:(NSString *)token;
+
 - (id)initWithString:(NSString *)string;
 - (double)evaluate;
 - (double)evaluateWithArguments:(NSDictionary *)arguments;

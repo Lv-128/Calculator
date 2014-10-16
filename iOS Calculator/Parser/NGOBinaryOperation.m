@@ -21,6 +21,10 @@
     if (self = [super init]) {
         self.name = name;
         self.args = [[NSMutableArray alloc] initWithObjects:leftArgument, rightArgument, nil];
+        
+        [self.args[0] setParent:self];
+        [self.args[1] setParent:self];
+        
         return self;
     }
     else {
@@ -38,7 +42,47 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"(%@ %@ %@)", self.args[0], self.name, self.args[1]];
+    NSMutableString *result = [NSMutableString stringWithFormat:@"%@%@%@", self.args[0], self.name, self.args[1]];
+    
+    // Parentheses around the root of tree are not needed
+    if (!self.parent) {
+        return result;
+    }
+    else
+    {
+        NGOOperation *parentOperation = (NGOOperation *)self.parent;
+        int selfPrecedence = [NGOFunction priorityOfToken:self.name];
+        int parentPrecedence = [NGOFunction priorityOfToken:parentOperation.name];
+        
+        // if self has higher precedence than its parent, parentheses can be ommited
+        if (selfPrecedence > parentPrecedence) {
+            return result;
+        }
+        // if self is left-associative and is the left child of a left-associative
+        // operation with the same precedence, the parentheses around self can be omitted
+        else if (([self.name isEqualToString:@"+"] || [self.name isEqualToString:@"-"] ||
+                  [self.name isEqualToString:@"*"] || [self.name isEqualToString:@"/"]) &&
+                 self == parentOperation.args[0] && selfPrecedence == parentPrecedence) {
+            return result;
+        }
+        // if self is right-associative and is the right child of a right-associative
+        // operation with the same precedence, the parentheses around self can be omitted
+        else if ([self.name isEqualToString:@"^"] &&
+                 self == parentOperation.args[1] && selfPrecedence == parentPrecedence) {
+            return result;
+        }
+        // if self is associative and is the child of the same operation, parentheses can be ommited
+        else if (([self.name isEqualToString:@"+"] || [self.name isEqualToString:@"*"]) &&
+                 [self.name isEqualToString:parentOperation.name]) {
+            return result;
+        }
+
+    }
+    
+    [result insertString:@"(" atIndex:0];
+    [result appendString:@")"];
+    
+    return result;
 }
 
 - (double)evaluate
@@ -54,38 +98,74 @@
 
 - (NGOExpression *)differentiateWithVariable:(NSString *)variable
 {
+    NGOExpression *leftOperand = self.args[0];
+    NGOExpression *rightOperand = self.args[1];
+    NGOExpression *derivedLeftOperand = [leftOperand differentiateWithVariable:variable];
+    NGOExpression *derivedRightOperand = [rightOperand differentiateWithVariable:variable];
+    
+    // The sum rule:
+    // (f + g)' = f' + g'
     if ([self.name isEqualToString:@"+"]) {
         return [[NGOBinaryOperation alloc] initWithName:@"+"
-                                           LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
-                                          RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]];
+                                           LeftArgument:derivedLeftOperand
+                                          RightArgument:derivedRightOperand];
     }
+    // The subtraction rule:
+    // (f - g)' = f' - g'
     else if ([self.name isEqualToString:@"-"]) {
         return [[NGOBinaryOperation alloc] initWithName:@"-"
-                                           LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
-                                          RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]];
+                                           LeftArgument:derivedLeftOperand
+                                          RightArgument:derivedRightOperand];
     }
+    // The product rule:
+    // (f * g)' = f' * g + f * g'
     else if ([self.name isEqualToString:@"*"]) {
         return [[NGOBinaryOperation alloc] initWithName:@"+"
                                            LeftArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
-                                                                                    LeftArgument:self.args[0]
-                                                                                   RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]]
+                                                                                    LeftArgument:leftOperand
+                                                                                   RightArgument:derivedRightOperand]
                                           RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
-                                                                                    LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
-                                                                                   RightArgument:self.args[1]]];
+                                                                                    LeftArgument:derivedLeftOperand
+                                                                                   RightArgument:rightOperand]];
     }
+    // The quotient rule:
+    // (f / g)' = (f' * g - g' * f) / (g ^ 2)
     else if ([self.name isEqualToString:@"/"]) {
-        NGOBinaryOperation *numerator = [[NGOBinaryOperation alloc] initWithName:@"-"
-                                                                    LeftArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
-                                                                                                             LeftArgument:self.args[0]
-                                                                                                            RightArgument:[(NGOExpression*)self.args[1] differentiateWithVariable:variable]]
-                                                                   RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
-                                                                                                             LeftArgument:[(NGOExpression*)self.args[0] differentiateWithVariable:variable]
-                                                                                                            RightArgument:self.args[1]]];
+        NGOBinaryOperation *numerator = [[NGOBinaryOperation alloc]
+                                         initWithName:@"-"
+                                         LeftArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                  LeftArgument:leftOperand
+                                                                                 RightArgument:derivedRightOperand]
+                                         RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                                   LeftArgument:derivedLeftOperand
+                                                                                  RightArgument:rightOperand]];
         return [[NGOBinaryOperation alloc] initWithName:@"/"
                                            LeftArgument: numerator
                                           RightArgument:[[NGOBinaryOperation alloc] initWithName:@"*"
-                                                                                    LeftArgument:self.args[1]
-                                                                                   RightArgument:self.args[1]]];
+                                                                                    LeftArgument:rightOperand
+                                                                                   RightArgument:rightOperand]];
+    }
+    // Generalized power rule:
+    // (f ^ g) = (f ^ g) * (g' * log(f) + g * (log(f))')
+    else if ([self.name isEqualToString:@"^"]) {
+        
+        NGOBinaryOperation *leftMultiplier = [[NGOBinaryOperation alloc] initWithName:@"^"
+                                                                         LeftArgument:leftOperand
+                                                                        RightArgument:rightOperand];
+        
+        NGOUnaryOperation *logarithm = [[NGOUnaryOperation alloc] initWithName:@"log" Argument:leftOperand];
+        NGOExpression *derivedLogarithm = [logarithm differentiateWithVariable:variable];
+        
+        NGOBinaryOperation *leftTerm = [[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                   LeftArgument:derivedRightOperand
+                                                                  RightArgument:logarithm];
+        NGOBinaryOperation *rightTerm = [[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                    LeftArgument:rightOperand
+                                                                   RightArgument:derivedLogarithm];
+        NGOBinaryOperation *rightMultiplier = [[NGOBinaryOperation alloc] initWithName:@"+"
+                                                                          LeftArgument:leftTerm
+                                                                         RightArgument:rightTerm];
+        return [[NGOBinaryOperation alloc] initWithName:@"*" LeftArgument:leftMultiplier RightArgument:rightMultiplier];
     }
     else {
         @throw [[NSException alloc] initWithName:@"Unknown operation"

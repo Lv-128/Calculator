@@ -16,6 +16,4 @@
 @property NSString *name;
 @property NSMutableArray *args;
 
-- (id)initWithName:(NSString *)string;
-
 @end

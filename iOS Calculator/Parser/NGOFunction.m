@@ -183,7 +183,7 @@ NGOExpression *_tree;
 {
     for (int i = 0; i < tokens.count; ++i) {
         if ([tokens[i] isEqualToString:@"-"] && (i == 0 || ([tokens[i - 1] isEqualToString:@"("] || [NGOFunction isOperationToken:tokens[i - 1]]))) {
-            [tokens[i] isEqualToString:@"negate"];
+            tokens[i] = @"negate";
         }
     }
     

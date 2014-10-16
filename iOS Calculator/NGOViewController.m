@@ -63,15 +63,15 @@ bool isSymbolBeforeEqual;
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
     [self setNeedsStatusBarAppearanceUpdate];
-//    Differentiation test
-//    @try {
-//        NGOFunction *f = [[NGOFunction alloc] initWithString:@"x*2+x"];
-//        [f differentiateWithVariable:@"x"];
-//        self.outputTextField.text = [NSString stringWithFormat:@"%@", f];
-//    }
-//    @catch (NSException *exception) {
-//        self.outputTextField.text = exception.reason;
-//    }
+    
+    @try {
+        NGOFunction *f = [[NGOFunction alloc] initWithString:@"x*tan(x)"];
+        [f differentiateWithVariable:@"x"];
+        self.outputTextField.text = [NSString stringWithFormat:@"%@", f];
+    }
+    @catch (NSException *exception) {
+        self.outputTextField.text = exception.reason;
+    }
 }
 
 - (void)didReceiveMemoryWarning
