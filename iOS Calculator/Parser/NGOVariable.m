@@ -8,6 +8,7 @@
 //  Concrete class, node that represents variable in expression tree.
 //
 
+#import "NGONumber.h"
 #import "NGOVariable.h"
 
 @implementation NGOVariable
@@ -51,6 +52,16 @@
         @throw [[NSException alloc] initWithName:@"Wrong arguments"
                                           reason:@"Not enough arguments"
                                         userInfo:nil];
+    }
+}
+
+- (NGOExpression *)differentiateWithVariable:(NSString *)variable
+{
+    if ([self.name isEqualToString:variable]) {
+        return [[NGONumber alloc] initWithNumber:1.0];
+    }
+    else {
+        return [[NGONumber alloc] initWithNumber:0.0];
     }
 }
 

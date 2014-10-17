@@ -30,9 +30,15 @@
     return self;
 }
 
+// abstract
+- (NGOExpression *)differentiateWithVariable:(NSString *)variable
+{
+    return nil;
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
-    NGOExpression *objectCopy = self.copy;
+    NGOExpression *objectCopy = [[[self class] alloc] init];
     objectCopy.parent = [self.parent copyWithZone:zone];
     return objectCopy;
 }

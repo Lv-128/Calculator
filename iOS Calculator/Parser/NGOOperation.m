@@ -12,16 +12,4 @@
 
 @implementation NGOOperation
 
-- (id)initWithName:(NSString *)string
-{
-    if (self = [super init]) {
-        self.name = string;
-        self.args = [NSMutableArray array];
-        return self;
-    }
-    else {
-        return nil;
-    }
-}
-
 @end

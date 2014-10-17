@@ -45,4 +45,9 @@
     return self.number;
 }
 
+- (NGOExpression *)differentiateWithVariable:(NSString *)variable
+{
+    return [[NGONumber alloc] initWithNumber:0.0];
+}
+
 @end

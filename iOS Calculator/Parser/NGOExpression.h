@@ -20,8 +20,13 @@
 // if leaf is number, constant or variable it simply returns its value
 // in operation classes method actually returns evaluateWithArguments:nil
 - (double)evaluate;
+
 // string key represents name of argument, key value is the value of argument
 - (double)evaluateWithArguments:(NSDictionary *)arguments;
+
+// returns differentated expression node
+- (NGOExpression *)differentiateWithVariable:(NSString *)variable;
+
 // optimizes operation nodes if necessary
 // (for example when binary operation is '+' and has zero as operand)
 - (NGOExpression*)optimize;
