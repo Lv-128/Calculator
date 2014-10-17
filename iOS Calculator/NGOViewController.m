@@ -64,14 +64,14 @@ bool isSymbolBeforeEqual;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
     [self setNeedsStatusBarAppearanceUpdate];
     
-    @try {
-        NGOFunction *f = [[NGOFunction alloc] initWithString:@"x*tan(x)"];
-        [f differentiateWithVariable:@"x"];
-        self.outputTextField.text = [NSString stringWithFormat:@"%@", f];
-    }
-    @catch (NSException *exception) {
-        self.outputTextField.text = exception.reason;
-    }
+//    @try {
+//        NGOFunction *f = [[NGOFunction alloc] initWithString:@"x*tan(x)"];
+//        [f differentiateWithVariable:@"x"];
+//        self.outputTextField.text = [NSString stringWithFormat:@"%@", f];
+//    }
+//    @catch (NSException *exception) {
+//        self.outputTextField.text = exception.reason;
+//    }
 }
 
 - (void)didReceiveMemoryWarning
