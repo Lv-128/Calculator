@@ -72,7 +72,7 @@
             return result;
         }
         // if self is associative and is the child of the same operation, parentheses can be ommited
-        else if (([self.name isEqualToString:@"+"] || [self.name isEqualToString:@"*"]) &&
+        else if (([self.name isEqualToString:@"+"] || [self.name isEqualToString:@"*"] || [self.name isEqualToString:@"/"]) &&
                  [self.name isEqualToString:parentOperation.name]) {
             return result;
         }
