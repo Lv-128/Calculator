@@ -115,6 +115,7 @@ bool previousSymbol;
     canPushDigit=YES;
     previousSymbol=1;
     canPressX =YES;
+    countBracket=0;
 }
 
 - (IBAction)deleteDigit
@@ -289,6 +290,7 @@ bool previousSymbol;
             self.outputTextField.text= @"0";
         }
         isNewEnter=NO;
+        countBracket=0;
     }
     
     
@@ -460,7 +462,7 @@ bool previousSymbol;
        _butEqual.titleLabel.text=@"=";
         _butX.hidden=YES;
     }
-    
+    [ self clearButtonPressed:0];
     
 }
 
@@ -478,6 +480,7 @@ bool previousSymbol;
         canPushDigit=YES;
         isNewEnter = NO;
         isMinusPressed=YES;
+        countBracket=0;
         return;
     }
     if (isPoint == YES && canPushSign == YES ){
@@ -562,30 +565,74 @@ bool previousSymbol;
         {
             if (previousSymbol == 0)
             {
-                if(lastSign == Sin)          curExpression = [@"sin(" stringByAppendingString:curExpression];
+                if(lastSign == Sin)    {
+                    curExpression = [@"sin(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Cos)     curExpression = [@"cos(" stringByAppendingString:curExpression ];
+                else if(lastSign == Cos)
+                {
+                    curExpression = [@"cos(" stringByAppendingString:curExpression ];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Tg)      curExpression = [@"tan(" stringByAppendingString:curExpression];
+                else if(lastSign == Tg)
+                {
+                    curExpression = [@"tan(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
+                else if(lastSign == sqr)
+                {
+                    curExpression = [@"sqrt(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == sqr)     curExpression = [@"sqrt(" stringByAppendingString:curExpression];
+                else if(lastSign == Ln)
+                {
+                    
+                    curExpression = [@"log(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Ln)      curExpression = [@"log(" stringByAppendingString:curExpression];
+                else if(lastSign == Log10)
+                {
+                    curExpression = [@"log10(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Log10)   curExpression = [@"log10(" stringByAppendingString:curExpression];
+                else if(lastSign == Sinh)
+                {
+                    curExpression = [@"sinh("stringByAppendingString:curExpression ];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Sinh)    curExpression = [@"sinh("stringByAppendingString:curExpression ];
+                else if(lastSign == Cosh)
+                {
+                    
+                    curExpression = [@"cosh(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
+            
+                else if(lastSign == Tanh)
+                {
+                    curExpression = [@"tanh(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Cosh)    curExpression = [@"cosh(" stringByAppendingString:curExpression];
+                else if(lastSign == oneDivX)
+                {
+                    curExpression = [@"1.0/( " stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                 
-                else if(lastSign == Tanh)    curExpression = [@"tanh(" stringByAppendingString:curExpression];
-                
-                else if(lastSign == oneDivX) curExpression = [@"1.0/( " stringByAppendingString:curExpression];
-                
-                else if(lastSign == Abs)     curExpression = [@"abs(" stringByAppendingString:curExpression];
+                else if(lastSign == Abs)
+                {
+                    curExpression = [@"abs(" stringByAppendingString:curExpression];
+                    curExpression = [curExpression stringByAppendingString:@")"];
+                }
                // countBracket =0;
                 
-                curExpression = [curExpression stringByAppendingString:@")"];
+               
                 lastSign = equal;
                 
             }
