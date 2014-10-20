@@ -10,6 +10,7 @@
 #include "Parser/NGOFunction.h"
 
 @interface NGOViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *butEqual;
 
 @property (weak, nonatomic) IBOutlet UIButton *butSqrt;
 @property (weak, nonatomic) IBOutlet UIButton *butLn;
@@ -34,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *outputTextLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *outputTextField;
+@property (weak, nonatomic) IBOutlet UIButton *butX;
 
 @end
 
@@ -58,12 +60,15 @@ int countBracket;
 BOOL canPushDigit;
 bool isSymbolBeforeEqual;
 
+bool canPressX;
 bool previousSymbol;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    canPressX =YES;
+    _butEqual.titleLabel.text=@"y'";
+    _butX.hidden = NO;
     isNewEnter = YES;
     isPoint = YES;
     countBracket=0;
@@ -109,6 +114,7 @@ bool previousSymbol;
     isNewEnter = YES;
     canPushDigit=YES;
     previousSymbol=1;
+    canPressX =YES;
 }
 
 - (IBAction)deleteDigit
@@ -122,6 +128,8 @@ bool previousSymbol;
     else
     {
         NSString * lastSymbol = [current substringFromIndex:[current length] - 1];
+        if ([lastSymbol isEqualToString:@"x"]) canPressX=YES; canPushDigit=YES;
+        
         if ( [lastSymbol isEqual:@"+"] || [lastSymbol isEqual:@"-"] || [lastSymbol isEqual:@"*"]|| [lastSymbol isEqual:@"/"])
         {
             canPushSign =YES;
@@ -163,7 +171,7 @@ bool previousSymbol;
         if ([lastSymbol isEqual:@"."]) { isPoint= YES;canPushSign =YES; }
         
         NSString * newstr = [current substringToIndex:[current length] - 1];
-    
+        
         if ([newstr length] > 0)
         {
             NSString * beforeLastSymbol = [newstr substringFromIndex:([newstr length] - 1)];
@@ -260,6 +268,7 @@ bool previousSymbol;
         }
         
     }
+    canPressX =YES;
     previousSymbol = 1;
     canPushLBracket=YES;
     return res;
@@ -349,6 +358,7 @@ bool previousSymbol;
                 
             }
               isMinusPressed=NO;
+            canPressX =YES;
             previousSymbol=1;
             break;
         }
@@ -363,6 +373,7 @@ bool previousSymbol;
                 {
                     NSString * beforeLastSymbol = [currValue substringFromIndex:([currValue length] - 1)];
                     
+                    
                     if (([beforeLastSymbol isEqual:@"0"] || [beforeLastSymbol isEqual:@"1"]  ||[beforeLastSymbol isEqual:@"2"] ||
                          [beforeLastSymbol isEqual:@"3"]  ||[beforeLastSymbol isEqual:@"4"]  || [beforeLastSymbol isEqual:@"5"] ||
                          [beforeLastSymbol isEqual:@"6"]  || [beforeLastSymbol isEqual:@"7"]  || [beforeLastSymbol isEqual:@"8"]||
@@ -370,6 +381,7 @@ bool previousSymbol;
                     {
                         currValue  = [currValue stringByAppendingString:@")"];
                         countBracket--;
+                        canPressX = NO;
                         canPushDigit=NO;
                     }
                     
@@ -385,12 +397,34 @@ bool previousSymbol;
             /////добавляем цифру в строку
         default:
         {
+            if ([currValue isEqual:@"0"] &&  [sender tag]== 10)// если перед вводимой цифрой был нуль, то нуль заменяется на эту цифру
+            {
+                currValue =@"x";
+                canPushDigit=NO;
+            }
+            else
+                if ([sender tag] ==10 && ![currValue isEqual:@"0"])
+                {
+                    if ( canPressX == YES)
+                    {
+                        currValue = [currValue stringByAppendingString:@"x"];/// добавляем цифру в строкy
+                        canPushSign = YES; // разрешаем ввод знака
+                        isMinusPressed =NO;
+                        isSymbolBeforeEqual = NO;
+                        isPoint =NO;
+                          canPushDigit=NO;
+                    }
+                }
+            else
             if(canPushDigit==YES)
             {
-                if ([currValue isEqual:@"0"] && [sender tag]!=0)// если перед вводимой цифрой был нуль, то нуль заменяется на эту цифру
+                if ([currValue isEqual:@"0"] && [sender tag]!=0 && [sender tag]!= 10)// если перед вводимой цифрой был нуль, то нуль заменяется на эту цифру
                 {
                     currValue =[NSString stringWithFormat:@"%i", [sender tag]];
                 }
+                
+                
+              
                 else
                     currValue = [currValue stringByAppendingString:currNum];/// добавляем цифру в строкy
                 canPushSign = YES; // разрешаем ввод знака
@@ -398,7 +432,8 @@ bool previousSymbol;
                  isSymbolBeforeEqual = NO;
             }
             // canPushRBracket =NO;
-               previousSymbol=0;
+            canPressX = NO;
+            previousSymbol=0;
             canPushLBracket=NO;
             break;
         }
@@ -412,6 +447,22 @@ bool previousSymbol;
     
 }
 
+- (IBAction)moveToProizvodnaya:(id)sender {
+    
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        
+       _butEqual.titleLabel.text=@"y'";
+        _butX.hidden = NO;
+        
+    } else
+    {
+       _butEqual.titleLabel.text=@"=";
+        _butX.hidden=YES;
+    }
+    
+    
+}
 
 -(IBAction)pointPushed:(id)sender{  // нажатие точки
     
@@ -500,7 +551,7 @@ bool previousSymbol;
                 countBracket++;
                 self.outputTextField.text = curExpression;
             }
-            
+            canPressX = YES;
             canPushSign = NO;
             canPushDigit = YES;
             isMinusPressed=NO;
@@ -565,7 +616,10 @@ bool previousSymbol;
        self.outputTextField.text = [self chooseTheOperation: lastSign ForRightExpression: curExpression];
         
        
-
+if (_switcherForNormalCalc.on ==YES)
+{
+    _butEqual.titleLabel.text=@"y'";
+}
 
     
  if (canPushSign == true)
@@ -605,7 +659,11 @@ bool previousSymbol;
             isNewEnter = YES;
             canPushDigit=NO;
             isNewEnter=YES;
-            
+          if (_switcherForNormalCalc.on ==YES)
+          {
+              _butEqual.titleLabel.text=@"y'";
+          }
+
             isPoint=NO;
             countBracket =0;
             lastSign = 0;

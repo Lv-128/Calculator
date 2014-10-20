@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435509626.655279"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
+            startingLineNumber = "618"
+            endingLineNumber = "618"
             landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435509626.655279"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "558"
-            endingLineNumber = "558"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
             landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -296,11 +296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435510023.596415"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "594"
-            endingLineNumber = "594"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
             landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -312,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435510023.596415"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "576"
-            endingLineNumber = "576"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
             landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -328,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435505627.786628"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-operationChosen:"
             landmarkType = "5">
          </BreakpointContent>
@@ -344,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435510023.596415"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
+            startingLineNumber = "649"
+            endingLineNumber = "649"
             landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,11 +360,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435505627.786628"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-deleteDigit"
             landmarkType = "5">
          </BreakpointContent>
@@ -376,11 +376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435505627.786628"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-deleteDigit"
             landmarkType = "5">
          </BreakpointContent>
@@ -392,11 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435505627.786628"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-deleteDigit"
             landmarkType = "5">
          </BreakpointContent>
@@ -408,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435506124.942632"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "-digitPushedBy:"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,11 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435506124.942632"
+            timestampString = "435518935.455857"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
             landmarkName = "-digitPushedBy:"
             landmarkType = "5">
          </BreakpointContent>
@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435506124.942632"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "-digitPushedBy:"
             landmarkType = "5">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435506124.942632"
+            timestampString = "435518811.105766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-digitPushedBy:"
             landmarkType = "5">
          </BreakpointContent>
@@ -488,11 +488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435508718.650696"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
             landmarkName = "-chooseTheOperation:ForRightExpression:"
             landmarkType = "5">
          </BreakpointContent>
@@ -504,11 +504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435509626.655279"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
+            startingLineNumber = "616"
+            endingLineNumber = "616"
             landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -520,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435509642.656632"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "516"
-            endingLineNumber = "516"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
             landmarkName = "-chooseTheOperation:ForRightExpression:"
             landmarkType = "5">
          </BreakpointContent>
@@ -536,12 +536,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS Calculator/NGOViewController.m"
-            timestampString = "435509656.862082"
+            timestampString = "435519174.703022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
+            startingLineNumber = "563"
+            endingLineNumber = "563"
             landmarkName = "-chooseTheOperation:ForRightExpression:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS Calculator/NGOViewController.m"
+            timestampString = "435519223.390866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "662"
+            endingLineNumber = "662"
+            landmarkName = "-signPushed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

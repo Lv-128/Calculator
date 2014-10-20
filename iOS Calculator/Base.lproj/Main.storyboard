@@ -24,7 +24,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="smj-kW-WeJ">
-                                <rect key="frame" x="94" y="147" width="60" height="40"/>
+                                <rect key="frame" x="90" y="147" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="2" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ioO-9u-Dod">
-                                <rect key="frame" x="166" y="148" width="60" height="40"/>
+                                <rect key="frame" x="159" y="148" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="3" backgroundImage="BlackButton"/>
                                 <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="jZy-aS-8q9">
-                                <rect key="frame" x="238" y="148" width="60" height="40"/>
+                                <rect key="frame" x="228" y="148" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="*" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="HUi-1F-eF0">
-                                <rect key="frame" x="94" y="189" width="60" height="40"/>
+                                <rect key="frame" x="90" y="189" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="5" backgroundImage="BlackButton"/>
                                 <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
@@ -75,7 +75,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Vwv-6Q-DJP">
-                                <rect key="frame" x="166" y="190" width="60" height="40"/>
+                                <rect key="frame" x="159" y="190" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="6" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="u9a-n5-5vC">
-                                <rect key="frame" x="238" y="189" width="60" height="40"/>
+                                <rect key="frame" x="228" y="189" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -108,7 +108,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="wFY-09-t2J">
-                                <rect key="frame" x="94" y="234" width="60" height="40"/>
+                                <rect key="frame" x="90" y="234" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="8" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,7 +119,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CNQ-xq-uey">
-                                <rect key="frame" x="166" y="234" width="60" height="40"/>
+                                <rect key="frame" x="159" y="234" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="9" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,7 +130,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="X7z-fD-kxR">
-                                <rect key="frame" x="238" y="233" width="60" height="40"/>
+                                <rect key="frame" x="228" y="233" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="hSB-T1-GUR">
-                                <rect key="frame" x="94" y="277" width="60" height="40"/>
+                                <rect key="frame" x="90" y="277" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="0" backgroundImage="BlackButton"/>
                                 <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
@@ -160,8 +160,17 @@
                                     <action selector="digitPushedBy:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p4u-Yn-CVv"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="euI-uf-4hb">
+                                <rect key="frame" x="500" y="190" width="60" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="x" backgroundImage="BlackButton"/>
+                                <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
+                                <connections>
+                                    <action selector="digitPushedBy:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ns9-w9-AX4"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="90" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="pz4-9I-lqp">
-                                <rect key="frame" x="166" y="277" width="60" height="40"/>
+                                <rect key="frame" x="159" y="277" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=")" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,7 +181,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="NuF-k1-zc7">
-                                <rect key="frame" x="238" y="277" width="60" height="40"/>
+                                <rect key="frame" x="228" y="277" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="=" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,7 +192,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="2yi-ny-vgh">
-                                <rect key="frame" x="312" y="105" width="60" height="40"/>
+                                <rect key="frame" x="298" y="105" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="sin" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,7 +203,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2012" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="iLG-uh-VdV">
-                                <rect key="frame" x="380" y="105" width="60" height="40"/>
+                                <rect key="frame" x="366" y="105" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="sinh" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,7 +214,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="gwC-SK-MOn">
-                                <rect key="frame" x="448" y="105" width="60" height="40"/>
+                                <rect key="frame" x="434" y="105" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="log10" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,7 +225,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="ECw-02-EWg">
-                                <rect key="frame" x="448" y="147" width="60" height="40"/>
+                                <rect key="frame" x="434" y="147" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ln" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,7 +245,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="TrQ-cm-Ayz">
-                                <rect key="frame" x="94" y="105" width="60" height="40"/>
+                                <rect key="frame" x="90" y="105" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="←" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,7 +256,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="3A5-q5-G2T">
-                                <rect key="frame" x="166" y="105" width="60" height="40"/>
+                                <rect key="frame" x="159" y="105" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="." backgroundImage="BlackButton"/>
                                 <state key="highlighted" backgroundImage="BlackButtonHighlighted"/>
@@ -256,7 +265,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="3cd-c7-iuw">
-                                <rect key="frame" x="238" y="105" width="60" height="40"/>
+                                <rect key="frame" x="228" y="105" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="/" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -267,7 +276,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="MmS-yG-gUV">
-                                <rect key="frame" x="380" y="277" width="60" height="40"/>
+                                <rect key="frame" x="366" y="277" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="1/x" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,7 +294,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button hidden="YES" opaque="NO" tag="2001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="afH-df-j6e">
-                                <rect key="frame" x="312" y="148" width="60" height="40"/>
+                                <rect key="frame" x="298" y="148" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cos" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,7 +305,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="RBU-f2-N28">
-                                <rect key="frame" x="312" y="190" width="60" height="40"/>
+                                <rect key="frame" x="298" y="190" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="tan" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -307,7 +316,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="nHd-lT-iJD">
-                                <rect key="frame" x="380" y="148" width="60" height="40"/>
+                                <rect key="frame" x="366" y="148" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cosh" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,7 +327,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="dbZ-ii-9kR">
-                                <rect key="frame" x="380" y="189" width="60" height="40"/>
+                                <rect key="frame" x="366" y="189" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="tanh" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,7 +338,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="PvS-lM-hBb">
-                                <rect key="frame" x="312" y="277" width="60" height="40"/>
+                                <rect key="frame" x="298" y="277" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="xⁿ" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -340,7 +349,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="70" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="yL6-4l-lzA">
-                                <rect key="frame" x="312" y="234" width="60" height="40"/>
+                                <rect key="frame" x="298" y="234" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="√" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -351,7 +360,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="2013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Mnr-Ld-0Rc">
-                                <rect key="frame" x="380" y="234" width="60" height="40"/>
+                                <rect key="frame" x="366" y="234" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=" ⎮ ⎮" backgroundImage="BlackButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -371,9 +380,12 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="EOP-QV-XOd">
                                 <rect key="frame" x="506" y="286" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="moveToProizvodnaya:" destination="vXZ-lx-hvc" eventType="valueChanged" id="hWQ-yA-OxT"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="calc mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hBp-ZK-zBv">
-                                <rect key="frame" x="501" y="253" width="76" height="47"/>
+                                <rect key="frame" x="500" y="244" width="76" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -388,6 +400,7 @@
                         <outlet property="butAbs" destination="Mnr-Ld-0Rc" id="kU4-Up-RQ3"/>
                         <outlet property="butCos" destination="afH-df-j6e" id="Ivn-RS-u5U"/>
                         <outlet property="butCosh" destination="nHd-lT-iJD" id="Qo4-PX-gAM"/>
+                        <outlet property="butEqual" destination="NuF-k1-zc7" id="Jzr-TY-f5Z"/>
                         <outlet property="butLn" destination="ECw-02-EWg" id="XJC-12-GmV"/>
                         <outlet property="butLog10" destination="gwC-SK-MOn" id="nUZ-cO-TVV"/>
                         <outlet property="butSin" destination="2yi-ny-vgh" id="fBo-4B-oK6"/>
@@ -395,6 +408,7 @@
                         <outlet property="butSqrt" destination="yL6-4l-lzA" id="cen-UW-cMX"/>
                         <outlet property="butTg" destination="RBU-f2-N28" id="qVr-jp-SLP"/>
                         <outlet property="butTgh" destination="dbZ-ii-9kR" id="0Cy-ZR-Aej"/>
+                        <outlet property="butX" destination="euI-uf-4hb" id="90a-Aj-HIo"/>
                         <outlet property="butXsquare" destination="PvS-lM-hBb" id="7Fo-OK-rtT"/>
                         <outlet property="oneDivX" destination="MmS-yG-gUV" id="poC-r3-725"/>
                         <outlet property="outputTextField" destination="vQ0-dt-Bg1" id="9py-b2-uzW"/>
