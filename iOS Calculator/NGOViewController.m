@@ -16,11 +16,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *butSin;
 @property (weak, nonatomic) IBOutlet UIButton *butCos;
 @property (weak, nonatomic) IBOutlet UIButton *butTg;
-@property (weak, nonatomic) IBOutlet UIButton *butCtg;
+
 @property (weak, nonatomic) IBOutlet UIButton *oneDivX;
 @property (weak, nonatomic) IBOutlet UIButton *butXCube;
 @property (weak, nonatomic) IBOutlet UIButton *butXsquare;
 @property (weak, nonatomic) IBOutlet UIButton *butFact;
+@property (weak, nonatomic) IBOutlet UIButton *butLog10;
+
+@property (weak, nonatomic) IBOutlet UIButton *butSinh;
+@property (weak, nonatomic) IBOutlet UIButton *butCosh;
+@property (weak, nonatomic) IBOutlet UIButton *butTgh;
+@property (weak, nonatomic) IBOutlet UIButton *butAbs;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switcherForNormalCalc;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *outputTextLabel;
 
@@ -33,7 +42,8 @@
 enum {
     plus = 40, minus = 50, multi = 20, divi = 30,
     c = 60, sqr = 70, rBracket=90, lBracket=80, equal = 3000,
-    Ln = 2003, Sin = 2000, Cos = 2001, Tg = 2002, Ctg = 2004, oneDivX = 2005, Xcube =2007 , power = 2006, factorial = 2008
+    Ln = 2003, Sin = 2000, Cos = 2001, Tg = 2002, Ctg = 2004, oneDivX = 2005, Xcube =2007 , power = 2006, factorial = 2008,
+    Log10 =2009, Tanh =2010, Cosh = 2011, Sinh = 2012, Abs =2013
 };
 
 BOOL isNewEnter;
@@ -430,27 +440,9 @@ bool previousSymbol;
     
 }
 
-
--(IBAction)signPushed:(id)sender{ // нажатие знака
-    //if (isNewEnter)  return;
-    
-    
-    double currValue;
-    
-    lastValue = currValue;
-    lastSign = [sender tag];
-    
-  //  if (canPushSign) {
-        
-    
-        
-        NSString * curExpression = self.outputTextField.text;
-
-        if ([curExpression isEqualToString:@"0"])
-        {
-            curExpression =@"";
-            self.outputTextField.text=@"";
-        }
+-(NSString*)chooseTheOperation:(int)chosedSign ForRightExpression:(NSString*)curExpression{
+    if  ( _switcherForNormalCalc.on)
+    {
         if (previousSymbol==1)
         {
             if(lastSign == Sin){
@@ -478,8 +470,23 @@ bool previousSymbol;
                 countBracket++;
                 self.outputTextField.text = curExpression;
             }
-            else if(lastSign == Ctg) {
-                curExpression = [curExpression stringByAppendingString:@"ctg("];
+            else if(lastSign == Log10) {
+                curExpression = [curExpression stringByAppendingString:@"log10("];
+                countBracket++;
+                self.outputTextField.text = curExpression;
+            }
+            else if(lastSign == Sinh) {
+                curExpression = [curExpression stringByAppendingString:@"sinh("];
+                countBracket++;
+                self.outputTextField.text = curExpression;
+            }
+            else if(lastSign == Cosh) {
+                curExpression = [curExpression stringByAppendingString:@"cosh("];
+                countBracket++;
+                self.outputTextField.text = curExpression;
+            }
+            else if(lastSign == Tanh) {
+                curExpression = [curExpression stringByAppendingString:@"tanh("];
                 countBracket++;
                 self.outputTextField.text = curExpression;
             }
@@ -488,38 +495,84 @@ bool previousSymbol;
                 countBracket++;
                 self.outputTextField.text = curExpression;
             }
+            else if(lastSign == Abs) {
+                curExpression = [curExpression stringByAppendingString:@"abs("];
+                countBracket++;
+                self.outputTextField.text = curExpression;
+            }
             
             canPushSign = NO;
-             canPushDigit = YES;
-              isMinusPressed=NO;
+            canPushDigit = YES;
+            isMinusPressed=NO;
             isNewEnter=NO;
-            /////////
-            ////// don't know how works
-            /////////
-    //        else if(lastSign == Xcube) {
-    //            curExpression = [@"x^3( " stringByAppendingString:curExpression];
-    //            countBracket++;
-    //            self.outputTextField.text = curExpression;
-    //        }
-            
-            
-            //  else if(lastSign == factorial) { x!
-            //
-            //      for (int n=(currValue-1); n>0; --n) {
-            //          currValue*=n;
-            //      }
-            //      curExpression = [@"x!( " stringByAppendingString:curExpression];
-            //      curExpression = [curExpression stringByAppendingString:@" ) = "];
-            //
-            //      self.textLabel.text = curExpression;
-            //      self.textField.text =[NSString stringWithFormat:@"%f", currValue];
-            //                                            }
         }
-        if(lastSign == equal) {
-            ///////////
-            // считываем введенное пользователем выражение и вычисляем
-          
-            
+    }
+        else
+        {
+            if (previousSymbol == 0)
+            {
+                if(lastSign == Sin)          curExpression = [@"sin(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == Cos)     curExpression = [@"cos(" stringByAppendingString:curExpression ];
+                
+                else if(lastSign == Tg)      curExpression = [@"tan(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == sqr)     curExpression = [@"sqrt(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == Ln)      curExpression = [@"log(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == Log10)   curExpression = [@"log10(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == Sinh)    curExpression = [@"sinh("stringByAppendingString:curExpression ];
+                
+                else if(lastSign == Cosh)    curExpression = [@"cosh(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == Tanh)    curExpression = [@"tanh(" stringByAppendingString:curExpression];
+                
+                else if(lastSign == oneDivX) curExpression = [@"1.0/( " stringByAppendingString:curExpression];
+                
+                else if(lastSign == Abs)     curExpression = [@"abs(" stringByAppendingString:curExpression];
+               // countBracket =0;
+                
+                curExpression = [curExpression stringByAppendingString:@")"];
+                lastSign = equal;
+                
+            }
+        }
+        
+    
+
+    return curExpression;
+    
+}
+
+-(IBAction)signPushed:(id)sender{ // нажатие знака
+    
+    NSString * curExpression = self.outputTextField.text;
+    
+    double currValue;
+    
+    lastValue = currValue;
+    lastSign = [sender tag];
+    
+       if ([curExpression isEqualToString:@"0"] && _switcherForNormalCalc.on == YES)
+        {
+           curExpression =@"";
+          self.outputTextField.text=@"";
+        }
+       else if ([curExpression isEqualToString:@"0"] && _switcherForNormalCalc.on == NO)previousSymbol =0;
+    
+       self.outputTextField.text = [self chooseTheOperation: lastSign ForRightExpression: curExpression];
+        
+       
+
+
+    
+ if (canPushSign == true)
+ {
+    
+      if(lastSign == equal) {
+                
             if (!(countBracket==0))
             {
                 for (int i=0; i< countBracket;++i)
@@ -530,6 +583,8 @@ bool previousSymbol;
                 
             }
             curExpression = self.outputTextField.text;
+                
+                
             if( isSymbolBeforeEqual ==YES) {
                 curExpression = [curExpression stringByAppendingString:@"1"];
             }
@@ -555,23 +610,12 @@ bool previousSymbol;
             countBracket =0;
             lastSign = 0;
         }
-        //  else
-        //      /// x^2
-        //      if(lastSign == XSquare){
-        //
-        //          curExpression = [@"( " stringByAppendingString:curExpression];
-        //
-        //          curExpression = [curExpression stringByAppendingString:@")^"];
-        //          self.outputTextField.text = curExpression;
-        //          isSymbolBeforeEqual = YES;
-        //          return;
-        //
-        //                                   }
+
                           
         
      lastValue = currValue;
-    
-    //}
+ }
+
     
 }
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -584,11 +628,16 @@ bool previousSymbol;
         _butSin.hidden = NO;
         _butLn.hidden = NO;
         _butCos.hidden = NO;
-        _butCtg.hidden=NO;
+        //_butCtg.hidden=NO;
         _oneDivX.hidden= NO;
         _butXCube.hidden=NO;
         _butXsquare.hidden=NO;
         _butFact.hidden= NO;
+        _butLog10.hidden= NO;
+        _butSinh.hidden= NO;
+        _butCosh.hidden=NO;
+        _butAbs.hidden=NO;
+        _butTgh.hidden=NO;
         
     }
     else
@@ -598,11 +647,16 @@ bool previousSymbol;
         _butSin.hidden=YES;
         _butSqrt.hidden = YES;
         _butTg.hidden=YES;
-        _butCtg.hidden=YES;
+      //  _butCtg.hidden=YES;
         _oneDivX.hidden= YES;
         _butXCube.hidden=YES;
         _butXsquare.hidden=YES;
         _butFact.hidden = YES;
+        _butLog10.hidden= YES;
+        _butSinh.hidden= YES;
+        _butCosh.hidden=YES;
+        _butAbs.hidden=YES;
+        _butTgh.hidden=YES;
     }
 }
 

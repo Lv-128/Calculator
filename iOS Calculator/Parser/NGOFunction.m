@@ -1,4 +1,4 @@
-//
+ //
 //  NGOFunction.m
 //  iOS Calculator
 //
@@ -42,6 +42,7 @@ NGOExpression *_tree;
             @"sqrt" : ^(double x) { return sqrt(x); },
              @"tan" : ^(double x) { return tan(x); },
             @"tanh" : ^(double x) { return tanh(x); }
+             
         };
     }
     return unaryOperations;

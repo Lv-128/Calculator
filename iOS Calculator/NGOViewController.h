@@ -13,5 +13,5 @@
 - (IBAction)digitPushedBy:(id)sender;
 - (NSString *)operationChosen:(int)sign;
 - (IBAction)pointPushed:(id)sender;
-
+-(NSString*)chooseTheOperation: (int)chosedSign ForRightExpression: (NSString*)curExpression;
 @end
