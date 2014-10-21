@@ -13,6 +13,7 @@
 #import "NGOFunction.h"
 #import "NGONumber.h"
 #import "NGOUnaryOperation.h"
+#import "NGOVariable.h"
 
 @implementation NGOBinaryOperation
 
@@ -67,8 +68,8 @@
         }
         // if self is right-associative and is the right child of a right-associative
         // operation with the same precedence, the parentheses around self can be omitted
-        else if ([self.name isEqualToString:@"^"] &&
-                 self == parentOperation.args[1] && selfPrecedence == parentPrecedence) {
+        else if ([self.name isEqualToString:@"^"] && (([self.parent isKindOfClass:[NGOBinaryOperation class]] &&
+                 self == parentOperation.args[1] && selfPrecedence == parentPrecedence) || [self.parent isKindOfClass:[NGOUnaryOperation class]])) {
             return result;
         }
         // if self is associative and is the child of the same operation, parentheses can be ommited
@@ -219,6 +220,27 @@
         else if ([arg2 isKindOfClass:[NGONumber class]] && [arg2 evaluate] == 1.0) {
             res = arg1;
         }
+        else if ([arg1 isKindOfClass:[NGONumber class]] && [arg2 isKindOfClass:[NGOBinaryOperation class]] &&
+                 [[(NGOBinaryOperation*)arg2 args][0] isKindOfClass:[NGONumber class]]) {
+            NGOBinaryOperation *operation = (NGOBinaryOperation*)arg2;
+            res = [[NGOBinaryOperation alloc] initWithName:operation.name
+                                              LeftArgument:[[NGONumber alloc] initWithNumber:[arg1 evaluate] * [operation.args[0] evaluate]]
+                                             RightArgument:operation.args[1]];
+        }
+        else if ([arg1 isKindOfClass:[NGOBinaryOperation class]] && [[(NGOBinaryOperation*)arg1 name] isEqualToString:@"^"] &&
+                 [[(NGOBinaryOperation*)arg1 args][0] isKindOfClass:[NGOVariable class]] && [arg2 isKindOfClass:[NGOBinaryOperation class]] &&
+                 [arg2 isKindOfClass:[NGOBinaryOperation class]] && [[(NGOBinaryOperation*)arg2 name] isEqualToString:@"/"] &&
+                 [[(NGOBinaryOperation*)arg2 args][0] isKindOfClass:[NGONumber class]] &&
+                 [[(NGOBinaryOperation*)arg2 args][1] isKindOfClass:[NGOVariable class]]) {
+            
+            NGOBinaryOperation *leftOperation = (NGOBinaryOperation*)arg1;
+            NGOBinaryOperation *rightOperation = (NGOBinaryOperation*)arg2;
+            NGONumber *power = [[NGONumber alloc] initWithNumber:[leftOperation.args[1] number] - 1.0];
+            NGOBinaryOperation *powerOperation = [[NGOBinaryOperation alloc] initWithName:@"^" LeftArgument:leftOperation.args[0] RightArgument:power];
+            
+            res = [[[NGOBinaryOperation alloc] initWithName:self.name LeftArgument:powerOperation RightArgument:rightOperation.args[0]] optimize];
+            
+        }
         else {
             res = [[NGOBinaryOperation alloc] initWithName:self.name LeftArgument:arg1 RightArgument:arg2];
         }
@@ -237,6 +259,9 @@
         }
         else if ([arg2 isKindOfClass:[NGONumber class]] && [arg2 evaluate] == 1.0) {
             res = arg1;
+        }
+        else if ([arg2 isKindOfClass:[NGONumber class]] && [arg2 evaluate] == 0.0) {
+            res = [[NGONumber alloc] initWithNumber:1.0];
         }
         else {
             res = [[NGOBinaryOperation alloc] initWithName:self.name LeftArgument:arg1 RightArgument:arg2];
