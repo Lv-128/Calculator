@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NGOSetingsViewController.h"
 
 enum {plus = 40, minus = 50, multi = 20, divi = 30 , sqr = 70, c = 60 ,
     rBracket=90, lBracket=80 , equal = 3000,
@@ -34,8 +34,12 @@ BOOL canPushDigit;
  
     bool isSymbolBeforeEqual;
     
-    
 }
+
+@property (strong,nonatomic) NSString * skin;
+
+-(IBAction) updateSkin:(UIStoryboardSegue *)segue;
+
 - (IBAction)digitPushedBy:(id)sender;
 - (NSString*)operationChosen:(int)sign;
 -(IBAction)pointPushed:(id)sender;

@@ -9,6 +9,7 @@
 #import "NGOViewController.h"
 #include "Parser/NGOFunction.h"
 
+
 @interface NGOViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *butSqrt;
@@ -521,5 +522,13 @@
     }
 }
 
+-(IBAction) updateSkin:(UIStoryboardSegue *) segue {
+    NGOSetingsViewController *sourceVC = segue.sourceViewController;
+    self.skin = sourceVC.skin;
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:self.skin]]];
+    [self setNeedsStatusBarAppearanceUpdate];
+    self.errorState = NO;
+}
 
 @end
