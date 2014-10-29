@@ -70,10 +70,25 @@
     if ([self.name isEqualToString:@"negate"]) {
         return [[NGOUnaryOperation alloc] initWithName:@"negate" Argument:derivedOperand];
     }
+    // Square root derivative:
+    // (sqrt(f))' = f' /(2 * cos(f))
+    else if ([self.name isEqualToString:@"sqrt"]) {
+        NGOBinaryOperation *denominator = [[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                      LeftArgument:[[NGONumber alloc] initWithNumber:2.0]
+                                                                     RightArgument:[[NGOUnaryOperation alloc] initWithName:@"sqrt"
+                                                                                                                  Argument:operand]];
+        return [[NGOBinaryOperation alloc ] initWithName:@"/" LeftArgument:derivedOperand RightArgument:denominator];
+    }
     // Sine derivative:
     // (sin(f))' = f' * cos(f)
-    if ([self.name isEqualToString:@"sin"]) {
+    else if ([self.name isEqualToString:@"sin"]) {
         NGOExpression *derivedOperation = [[NGOUnaryOperation alloc] initWithName:@"cos" Argument:operand];
+        return [[NGOBinaryOperation alloc] initWithName:@"*" LeftArgument:derivedOperand RightArgument:derivedOperation];
+    }
+    // Hyperbolic sine derivative:
+    // (sinh(f))' = f' * cosh(f)
+    else if ([self.name isEqualToString:@"sinh"]) {
+        NGOExpression *derivedOperation = [[NGOUnaryOperation alloc] initWithName:@"cosh" Argument:operand];
         return [[NGOBinaryOperation alloc] initWithName:@"*" LeftArgument:derivedOperand RightArgument:derivedOperation];
     }
     // Cosine derivative:
@@ -82,6 +97,12 @@
         NGOExpression *derivedOperation = [[NGOUnaryOperation alloc] initWithName:@"sin" Argument:operand];
         NGOExpression *multiplication = [[NGOBinaryOperation alloc] initWithName:@"*" LeftArgument:derivedOperand RightArgument:derivedOperation];
         return [[NGOUnaryOperation alloc] initWithName:@"negate" Argument:multiplication];
+    }
+    // Hyperbolic cosine derivative:
+    // (sin(f))' = f' * cos(f)
+    else if ([self.name isEqualToString:@"cosh"]) {
+        NGOExpression *derivedOperation = [[NGOUnaryOperation alloc] initWithName:@"sinh" Argument:operand];
+        return [[NGOBinaryOperation alloc] initWithName:@"*" LeftArgument:derivedOperand RightArgument:derivedOperation];
     }
     // Tangent derivative:
     // (tan(f))' = f' / (cos(f) ^ 2)
@@ -93,10 +114,29 @@
         return [[NGOBinaryOperation alloc] initWithName:@"/" LeftArgument:derivedOperand RightArgument:denominator];
         
     }
+    // Hyperbolic tangent derivative:
+    // (sin(f))' = f' * cos(f)
+    else if ([self.name isEqualToString:@"tanh"]) {
+        NGOExpression *derivedOperation = [[NGOBinaryOperation alloc] initWithName:@"^"
+                                                                      LeftArgument:[[NGOUnaryOperation alloc] initWithName:@"cosh" Argument:operand]
+                                                                     RightArgument:[[NGONumber alloc] initWithNumber:-2.0]];
+        return [[NGOBinaryOperation alloc] initWithName:@"*" LeftArgument:derivedOperand RightArgument:derivedOperation];
+    }
+    // Absolute value derivative:
+    
     // Logarithmic derivative:
     // (log(f))' = f' / f
     else if ([self.name isEqualToString:@"log"]) {
         return [[NGOBinaryOperation alloc ] initWithName:@"/" LeftArgument:derivedOperand RightArgument:operand];
+    }
+    // Square root derivative:
+    // (log10(f))' = f' /(f * log(10))
+    else if ([self.name isEqualToString:@"log10"]) {
+        NGOBinaryOperation *denominator = [[NGOBinaryOperation alloc] initWithName:@"*"
+                                                                      LeftArgument:operand
+                                                                     RightArgument:[[NGOUnaryOperation alloc] initWithName:@"log10"
+                                                                                                                  Argument:[[NGONumber alloc] initWithNumber:10.0]]];
+        return [[NGOBinaryOperation alloc ] initWithName:@"/" LeftArgument:derivedOperand RightArgument:denominator];
     }
     else {
         @throw [[NSException alloc] initWithName:@"Unknown operation"

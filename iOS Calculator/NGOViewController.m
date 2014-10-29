@@ -22,12 +22,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *butXCube;
 @property (weak, nonatomic) IBOutlet UIButton *butXsquare;
 @property (weak, nonatomic) IBOutlet UIButton *butFact;
-@property (weak, nonatomic) IBOutlet UIButton *butLog10;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *butSinh;
 @property (weak, nonatomic) IBOutlet UIButton *butCosh;
 @property (weak, nonatomic) IBOutlet UIButton *butTgh;
-@property (weak, nonatomic) IBOutlet UIButton *butAbs;
+
 
 @property (weak, nonatomic) IBOutlet UISwitch *switcherForNormalCalc;
 
@@ -45,7 +45,7 @@ enum {
     plus = 40, minus = 50, multi = 20, divi = 30,
     c = 60, sqr = 70, rBracket=90, lBracket=80, equal = 3000,
     Ln = 2003, Sin = 2000, Cos = 2001, Tg = 2002, Ctg = 2004, oneDivX = 2005, Xcube =2007 , power = 2006, factorial = 2008,
-    Log10 =2009, Tanh =2010, Cosh = 2011, Sinh = 2012, Abs =2013
+     Tanh =2010, Cosh = 2011, Sinh = 2012
 };
 
 BOOL isNewEnter;
@@ -83,15 +83,7 @@ bool previousSymbol;
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
     [self setNeedsStatusBarAppearanceUpdate];
-    
-//    @try {
-//        NGOFunction *f = [[NGOFunction alloc] initWithString:@"x*tan(x)"];
-//        [f differentiateWithVariable:@"x"];
-//        self.outputTextField.text = [NSString stringWithFormat:@"%@", f];
-//    }
-//    @catch (NSException *exception) {
-//        self.outputTextField.text = exception.reason;
-//    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -376,10 +368,10 @@ bool previousSymbol;
                     NSString * beforeLastSymbol = [currValue substringFromIndex:([currValue length] - 1)];
                     
                     
-                    if (([beforeLastSymbol isEqual:@"0"] || [beforeLastSymbol isEqual:@"1"]  ||[beforeLastSymbol isEqual:@"2"] ||
+                    if ([beforeLastSymbol isEqual:@"0"] || [beforeLastSymbol isEqual:@"1"]  ||[beforeLastSymbol isEqual:@"2"] ||
                          [beforeLastSymbol isEqual:@"3"]  ||[beforeLastSymbol isEqual:@"4"]  || [beforeLastSymbol isEqual:@"5"] ||
                          [beforeLastSymbol isEqual:@"6"]  || [beforeLastSymbol isEqual:@"7"]  || [beforeLastSymbol isEqual:@"8"]||
-                         [beforeLastSymbol isEqual:@"9"]) || [beforeLastSymbol isEqual:@")"]  )
+                         [beforeLastSymbol isEqual:@"9"] || [beforeLastSymbol isEqual:@")"] || [beforeLastSymbol isEqual:@"x"]  )
                     {
                         currValue  = [currValue stringByAppendingString:@")"];
                         countBracket--;
@@ -413,6 +405,7 @@ bool previousSymbol;
                         canPushSign = YES; // разрешаем ввод знака
                         isMinusPressed =NO;
                         isSymbolBeforeEqual = NO;
+                        
                         isPoint =NO;
                           canPushDigit=NO;
                     }
@@ -451,18 +444,19 @@ bool previousSymbol;
 
 - (IBAction)moveToProizvodnaya:(id)sender {
     
-    UISwitch *mySwitch = (UISwitch *)sender;
-    if ([mySwitch isOn]) {
+   // UISwitch *mySwitch = (UISwitch *)sender;
+    if(self.switcherForNormalCalc.on) {
         
-       _butEqual.titleLabel.text=@"y'";
+        
+        _butEqual.titleLabel.text=@"y'";
         _butX.hidden = NO;
-        
-    } else
+    }
+   else
     {
-       _butEqual.titleLabel.text=@"=";
+      _butEqual.titleLabel.text=@"=";
         _butX.hidden=YES;
     }
-    [ self clearButtonPressed:0];
+   [ self clearButtonPressed:0];
     
 }
 
@@ -524,11 +518,6 @@ bool previousSymbol;
                 countBracket++;
                 self.outputTextField.text = curExpression;
             }
-            else if(lastSign == Log10) {
-                curExpression = [curExpression stringByAppendingString:@"log10("];
-                countBracket++;
-                self.outputTextField.text = curExpression;
-            }
             else if(lastSign == Sinh) {
                 curExpression = [curExpression stringByAppendingString:@"sinh("];
                 countBracket++;
@@ -549,11 +538,7 @@ bool previousSymbol;
                 countBracket++;
                 self.outputTextField.text = curExpression;
             }
-            else if(lastSign == Abs) {
-                curExpression = [curExpression stringByAppendingString:@"abs("];
-                countBracket++;
-                self.outputTextField.text = curExpression;
-            }
+          
             canPressX = YES;
             canPushSign = NO;
             canPushDigit = YES;
@@ -594,12 +579,6 @@ bool previousSymbol;
                     curExpression = [curExpression stringByAppendingString:@")"];
                 }
                 
-                else if(lastSign == Log10)
-                {
-                    curExpression = [@"log10(" stringByAppendingString:curExpression];
-                    curExpression = [curExpression stringByAppendingString:@")"];
-                }
-                
                 else if(lastSign == Sinh)
                 {
                     curExpression = [@"sinh("stringByAppendingString:curExpression ];
@@ -625,13 +604,7 @@ bool previousSymbol;
                     curExpression = [curExpression stringByAppendingString:@")"];
                 }
                 
-                else if(lastSign == Abs)
-                {
-                    curExpression = [@"abs(" stringByAppendingString:curExpression];
-                    curExpression = [curExpression stringByAppendingString:@")"];
-                }
-               // countBracket =0;
-                
+
                
                 lastSign = equal;
                 
@@ -663,17 +636,14 @@ bool previousSymbol;
        self.outputTextField.text = [self chooseTheOperation: lastSign ForRightExpression: curExpression];
         
        
-if (_switcherForNormalCalc.on ==YES)
-{
-    _butEqual.titleLabel.text=@"y'";
-}
 
     
  if (canPushSign == true)
  {
     
-      if(lastSign == equal) {
-                
+     if(lastSign == equal) {
+         
+        
             if (!(countBracket==0))
             {
                 for (int i=0; i< countBracket;++i)
@@ -683,7 +653,29 @@ if (_switcherForNormalCalc.on ==YES)
                 }
                 
             }
-            curExpression = self.outputTextField.text;
+         
+         curExpression = self.outputTextField.text;
+         if (_switcherForNormalCalc.on )
+         {
+         NSLog(curExpression);
+          @try {
+              NGOFunction *function = [[NGOFunction alloc] initWithString:curExpression];
+              self.outputTextLabel.text = [@"y'( "stringByAppendingString:curExpression];
+              self.outputTextLabel.text = [self.outputTextLabel.text stringByAppendingString:@" ) = "];
+              [function differentiateWithVariable:@"x"];
+              curExpression = [NSString stringWithFormat:@"%@", function];
+              NSLog(@"%@",function);
+              self.outputTextField.text = curExpression;
+              
+          }
+          @catch(NSException *exception) {
+              self.outputTextField.text = @"∞";
+          }
+
+         }
+         else
+         {
+         
                 
                 
             if( isSymbolBeforeEqual ==YES) {
@@ -701,6 +693,7 @@ if (_switcherForNormalCalc.on ==YES)
                 self.outputTextField.text = @"∞";
             }
             self.outputTextLabel.text = curExpression;
+         }
             canPushSign = YES;
             isPoint = YES;
             isNewEnter = YES;
@@ -725,6 +718,13 @@ if (_switcherForNormalCalc.on ==YES)
 }
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+    
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
+    {
+        _switcherForNormalCalc.on =NO;
+        _butX.hidden = YES;
+        
+    }
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
         toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
@@ -738,10 +738,10 @@ if (_switcherForNormalCalc.on ==YES)
         _butXCube.hidden=NO;
         _butXsquare.hidden=NO;
         _butFact.hidden= NO;
-        _butLog10.hidden= NO;
+     
         _butSinh.hidden= NO;
         _butCosh.hidden=NO;
-        _butAbs.hidden=NO;
+      
         _butTgh.hidden=NO;
         
     }
@@ -757,10 +757,10 @@ if (_switcherForNormalCalc.on ==YES)
         _butXCube.hidden=YES;
         _butXsquare.hidden=YES;
         _butFact.hidden = YES;
-        _butLog10.hidden= YES;
+        
         _butSinh.hidden= YES;
         _butCosh.hidden=YES;
-        _butAbs.hidden=YES;
+     
         _butTgh.hidden=YES;
     }
 }
