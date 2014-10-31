@@ -67,7 +67,7 @@ bool previousSymbol;
 {
     [super viewDidLoad];
     canPressX =YES;
-    _butEqual.titleLabel.text=@"y'";
+   // _butEqual.titleLabel.text=@"y'";
     _butX.hidden = NO;
     isNewEnter = YES;
     isPoint = YES;
@@ -79,6 +79,12 @@ bool previousSymbol;
     isMinusPressed =NO;
     isSymbolBeforeEqual=NO;
     previousSymbol=1;
+    
+    
+  
+        _switcherForNormalCalc.on =NO;
+        _butX.hidden = YES;
+
     
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
@@ -445,15 +451,15 @@ bool previousSymbol;
 - (IBAction)moveToProizvodnaya:(id)sender {
     
    // UISwitch *mySwitch = (UISwitch *)sender;
-    if(self.switcherForNormalCalc.on) {
+    if(self.switcherForNormalCalc.on== YES) {
         
         
-        _butEqual.titleLabel.text=@"y'";
+      //  _butEqual.titleLabel.text=@"y'";
         _butX.hidden = NO;
     }
    else
     {
-      _butEqual.titleLabel.text=@"=";
+    //  _butEqual.titleLabel.text=@"=";
         _butX.hidden=YES;
     }
    [ self clearButtonPressed:0];
@@ -699,10 +705,7 @@ bool previousSymbol;
             isNewEnter = YES;
             canPushDigit=NO;
             isNewEnter=YES;
-          if (_switcherForNormalCalc.on ==YES)
-          {
-              _butEqual.titleLabel.text=@"y'";
-          }
+       
 
             isPoint=NO;
             countBracket =0;
